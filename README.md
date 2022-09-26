@@ -28,4 +28,6 @@ Repository created for automated testing of the [OrangeHRM](https://opensource-d
 #### 4. To start the tests, run: 
 `npm run wdio`
 
-
+## ✨ Oriented by:
+| [<img src="https://avatars.githubusercontent.com/u/11262500?v=4" width=115><br><sub>Maksym Filippov</sub>](https://github.com/maksymfilippov) |
+| :---: |
