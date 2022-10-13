@@ -21,7 +21,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/*.js'
+        './test/specs/orangehrm-tests.js'
     ],
     // Patterns to exclude.
     exclude: [

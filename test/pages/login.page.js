@@ -3,22 +3,26 @@ const Page = require('./page');
 class LoginPage extends Page {
 
     get inputUsername () {
-        return $('//form/div[1]/div/div[2]/input');
+        return $('.oxd-input[name="username"]');
     }
 
     get inputPassword () {
-        return $('//form/div[2]/div/div[2]/input');
+        return $('.oxd-input[name="password"]');
+    }
+
+    get userImage(){
+        return $('img.oxd-userdropdown-img');
     }
 
     get btnSubmit () {
-        return $('//form/div[3]/button');
+        return $('button.orangehrm-login-button');
     }
 
-    open () {
-        return super.open();
+    open() {
+        return super.open('/auth/login');
     }
 
-    async login (username, password) {
+    async login (username, password) { 
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();

@@ -1,7 +1,7 @@
-class SuccessToast {
+class Toast {
     get successToast(){
         return $('div.oxd-toast-content.oxd-toast-content--success');
     }
 }
 
-module.exports = new SuccessToast();
+module.exports = new Toast();
