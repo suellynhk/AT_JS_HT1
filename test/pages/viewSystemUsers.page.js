@@ -19,14 +19,22 @@ class ViewSystemUsers extends Page {
     }
 
     get inputSearchUsername(){
-        return $('.oxd-form-row .oxd-input');
+        return $('.oxd-form .oxd-input');
     }
     
     async waitAndClick(button) {
-        await button.waitForDisplayed({timeout: 5000});
+        await button.waitForExist({timeout: 5000});
         await button.click();
     }
 
+    async searchByUsername(username) {
+        await browser.waitUntil( 
+            async () =>  await this.inputSearchUsername.isDisplayed(),
+            { timeout: 5000, timeoutMsg: 'Expected display input username'}
+        );
+
+        await this.inputSearchUsername.setValue(username);
+    }
 
     async clickDeleteButton(){
         const btnDelete= await $('.orangehrm-horizontal-padding .oxd-button--label-danger');

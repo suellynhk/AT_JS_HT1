@@ -41,33 +41,39 @@ class SaveSystemUser extends Page {
 
     async setEmployeeName(input){
         const name = await this.employeeName.getText();
-        const beginningName = name.slice(0, 4);
+        const beginningName = name.slice(0, 3);
         await input.setValue(beginningName);
-        await this.autocompleteOption.click();  
+        await this.autocompleteOption.click();
     } 
      
     async setAnOption(input, option){
         await input.click();
         const optionsList = await $$('.oxd-select-option span');
-        for(let i = 0; i < optionsList.length; i++){
-            const item = optionsList[i];
+        for (let item of optionsList){
             const itemText = await item.getText();
             if( itemText === option ){
                 await item.click();
                 break;
             } 
         }
-
+    
         await browser.waitUntil( 
             async () => (await input.getText()) === option,
             { timeout: 5000, timeoutMsg: `Input should have ${option} value`}
-        );
+        )
     }
 
     async setInputValue(input, value) {
         await input.setValue(value);
     }
     
+    async clickSaveButton(){
+        await browser.pause(2000);
+        const button = this.btnSave;
+        await button.isClickable();
+        await button.click();
+    }
+
     open() {
         return super.open('/admin/saveSystemUser');
     }

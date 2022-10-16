@@ -23,6 +23,7 @@ class LoginPage extends Page {
     }
 
     async login (username, password) { 
+        await browser.setTimeout({'implicit': 5000});
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();

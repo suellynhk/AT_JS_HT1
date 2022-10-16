@@ -10,11 +10,11 @@ class ViewEmployeeList extends Page {
     }
 
     get userManagementOptions () {
-        return $('span.oxd-topbar-body-nav-tab-item*=User Management ');
+        return $('span.oxd-topbar-body-nav-tab-item');
     }
 
     get usersOption () {
-        return $('a*=Users');
+        return $('.oxd-dropdown-menu a');
     }
 
     get addButton () {
